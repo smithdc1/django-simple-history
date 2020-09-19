@@ -3,7 +3,7 @@ from simple_history.templatetags.getattributes import getattribute
 from django.test import TestCase
 
 
-class Foo(object):
+class Foo:
     bar = "bar"
 
 

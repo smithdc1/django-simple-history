@@ -20,12 +20,8 @@ from django.utils.text import capfirst
 
 from . import utils
 
-if django.VERSION < (2,):
-    from django.utils.encoding import force_text as force_str
-    from django.utils.translation import ugettext as _
-else:
-    from django.utils.encoding import force_str
-    from django.utils.translation import gettext as _
+from django.utils.encoding import force_str
+from django.utils.translation import gettext as _
 
 USER_NATURAL_KEY = tuple(key.lower() for key in settings.AUTH_USER_MODEL.split(".", 1))
 
@@ -241,8 +237,7 @@ class SimpleHistoryAdmin(admin.ModelAdmin):
 
     @property
     def content_type_model_cls(self):
-        """Returns the ContentType model class.
-        """
+        """Returns the ContentType model class."""
         return django_apps.get_model("contenttypes.contenttype")
 
     @property
